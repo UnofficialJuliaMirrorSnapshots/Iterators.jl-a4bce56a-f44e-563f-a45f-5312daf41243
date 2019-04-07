@@ -1,0 +1,12 @@
+language: julia
+os:
+    - linux
+    - osx
+julia:
+    - 0.4
+    - 0.5
+    - nightly
+notifications:
+  email: false
+after_script:
+    - julia -e 'cd(Pkg.dir("Iterators")); Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'
